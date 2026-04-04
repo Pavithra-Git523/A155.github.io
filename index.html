@@ -1,10 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My First Site</title>
+    <title>Crime Analysis Dashboard</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f8f9fb;
+            color: #333;
+        }
+        h1, h2, h3 {
+            text-align: center;
+        }
+        h1 {
+            color: #1f2c56;
+            margin-bottom: 10px;
+        }
+        h2 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        img, iframe {
+            border-radius: 10px;
+            margin-bottom: 30px;
+            max-width: 100%;
+        }
+    </style>
 </head>
-<body style="font-family: Arial; text-align: center; margin-top: 50px;">
-    <h1>Hello 👋</h1>
-    <p>This is my first GitHub Pages website!</p>
+<body>
+    <h1>Crime Analysis Dashboard</h1>
+
+    <h2>Crime Analysis Dashboard</h2>
+
+    <h3>📊 Crime Trends</h3>
+    <img src="crime_plot.png" style="width:100%;">
+
+    <h3>📈 Interactive Chart</h3>
+    <iframe src="assault_time_distribution.html" width="100%" height="500"></iframe>
+
+    <h3>🗺️ Crime Map</h3>
+    <iframe src="crime_map.html" width="100%" height="500"></iframe>
 </body>
 </html>
+
