@@ -30,9 +30,19 @@
             margin-bottom: 30px;
             max-width: 100%;
         }
+        .dropdown-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        select {
+            padding: 8px;
+            font-size: 14px;
+        }
     </style>
 </head>
+
 <body>
+
     <h1>Crime Analysis Dashboard</h1>
 
     <h2>Crime Analysis Dashboard</h2>
@@ -43,8 +53,36 @@
     <h3>🗺️ Crime Map</h3>
     <iframe src="assault_crime_map.html" width="100%" height="500"></iframe>
 
-    <iframe src="assault_time_distribution_final7.html" width="100%" height="650" style="border:none;"></iframe>
+    <!-- NEW SECTION -->
+    <h3>⏱️ Assault Time Distribution</h3>
+
+    <div class="dropdown-container">
+        <label><b>Select Police District:</b></label>
+        <select id="districtDropdown">
+            <option value="district_plots/bayview.html">Bayview</option>
+            <option value="district_plots/central.html">Central</option>
+            <option value="district_plots/mission.html">Mission</option>
+            <option value="district_plots/northern.html">Northern</option>
+            <option value="district_plots/park.html">Park</option>
+            <option value="district_plots/richmond.html">Richmond</option>
+            <option value="district_plots/southern.html">Southern</option>
+            <option value="district_plots/taraval.html">Taraval</option>
+            <option value="district_plots/tenderloin.html">Tenderloin</option>
+        </select>
+    </div>
+
+    <iframe id="plotFrame"
+        src="district_plots/bayview.html"
+        width="100%"
+        height="650"
+        style="border:none;">
+    </iframe>
+
+    <script>
+        document.getElementById("districtDropdown").onchange = function() {
+            document.getElementById("plotFrame").src = this.value;
+        };
+    </script>
 
 </body>
 </html>
-
