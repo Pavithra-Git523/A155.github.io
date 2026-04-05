@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Persistent hotspots: why some areas never change</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f8f9fb;
+            color: #333;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            text-align: center;
+        }
+        h1 {
+            color: #1f2c56;
+            margin-bottom: 10px;
+        }
+        h2 {
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: #1f2c56;
+        }
+        h3 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        p {
+            max-width: 900px;
+            margin: 0 auto 18px auto;
+            font-size: 16px;
+        }
+        .lead {
+            font-size: 18px;
+            text-align: center;
+            max-width: 950px;
+        }
+        .caption {
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+            margin-top: -15px;
+            margin-bottom: 30px;
+        }
+        img, iframe {
+            border-radius: 10px;
+            margin-bottom: 20px;
+            max-width: 100%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .dropdown-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        select {
+            padding: 8px;
+            font-size: 14px;
+        }
+        .section {
+            margin-bottom: 50px;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #1f2c56;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Persistent hotspots: why some areas never change</h1>
+
+    <p class="lead">
+        Crime is often described as constantly changing, rising and falling over time.
+        But what if some places never really change?
+    </p>
+
+    <div class="section">
+        <h2>Introduction</h2>
+
+        <p>
+            To explore this idea, we examined several crime categories in San Francisco. While many types of crime fluctuate or occur relatively infrequently, others remain consistently present.
+        </p>
+
+        <p>
+            Among them, assault stands out as one of the most frequent crimes over time, second only to larceny/theft. However, frequency alone is not the only reason to focus on it. Although larceny/theft is the most common crime, it primarily involves property loss. Assault, in contrast, directly affects personal safety and has a more immediate impact on how people experience the city.
+        </p>
+
+        <p>
+            Because of its combination of frequency, impact, and consistency over time, assault provides a meaningful lens for understanding persistent crime patterns.
+        </p>
+
+        <h3>📊 Crime Trends</h3>
+        <img src="focus_crime_plot.png" style="width:100%;">
+
+        <p class="caption">
+            Figure 1. Yearly incident counts for selected crime types. Assault remains consistently high across years compared to other crime categories.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Where do assaults happen?</h2>
+
+        <p>
+            Crime levels may change over time, but do the locations change as well?
+        </p>
+
+        <p>
+            The map below shows how assault incidents are distributed across San Francisco over the years. Areas in red indicate higher concentrations of incidents.
+        </p>
+
+        <h3>🗺️ Crime Map</h3>
+        <iframe src="assault_crime_map.html" width="100%" height="500"></iframe>
+
+        <p class="caption">
+            Figure 2. Heatmap of assault incidents over time. The same central and eastern areas remain hotspots across years.
+        </p>
+
+        <p>
+            At first glance, the map suggests that crime intensity shifts from year to year. Some periods appear more concentrated, while others seem more dispersed.
+        </p>
+
+        <p>
+            However, a closer look reveals a much more stable pattern. The same areas, especially in the central and eastern parts of the city, remain consistently intense across all years.
+            <span class="highlight">Assault is not randomly distributed. It repeatedly occurs in the same locations.</span>
+        </p>
+
+        <p>
+            These areas are also among the most densely populated and socially active parts of the city, with more commercial activity, nightlife, and public interaction. In contrast, western districts tend to be more residential and less dense. This difference helps explain why incidents concentrate in certain areas, without necessarily meaning those areas are inherently more dangerous.
+        </p>
+
+        <p>
+            At the same time, this raises important questions. Are these areas truly more dangerous, or are they simply more visible in the data? Higher population density, increased police presence, or higher reporting rates may all influence these patterns.
+        </p>
+
+        <p>
+            The key insight is that these hotspots persist over more than two decades, suggesting that crime patterns are deeply rooted in the structure of the city.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>When do assaults happen?</h2>
+
+        <p>
+            The map shows where assaults occur, but not when they happen. To understand this, we now explore how incidents are distributed across hours of the day.
+        </p>
+
+        <p>
+            Use the interactive chart below to explore how assault incidents vary across time and between weekdays and weekends. Weekdays are shown in blue, while weekends are highlighted in red.
+        </p>
+
+        <h3>⏱️ Assault Time Distribution</h3>
+
+        <div class="dropdown-container">
+            <label><b>Select Police District:</b></label>
+            <select id="districtDropdown">
+                <option value="bayview.html">Bayview</option>
+                <option value="central.html">Central</option>
+                <option value="ingleside.html">Ingleside</option>
+                <option value="mission.html">Mission</option>
+                <option value="northern.html">Northern</option>
+                <option value="park.html">Park</option>
+                <option value="richmond.html">Richmond</option>
+                <option value="southern.html">Southern</option>
+                <option value="taraval.html">Taraval</option>
+                <option value="tenderloin.html">Tenderloin</option>
+            </select>
+        </div>
+
+        <iframe id="plotFrame"
+            src="bayview.html"
+            width="100%"
+            height="650"
+            style="border:none;">
+        </iframe>
+
+        <p class="caption">
+            Figure 3. Interactive distribution of assault incidents by hour and day of the week for different police districts.
+        </p>
+
+        <p>
+            Assault incidents occur throughout the day, but they are not evenly distributed. Most incidents cluster during the afternoon and evening hours.
+        </p>
+
+        <p>
+            There is also a noticeable difference between weekdays and weekends. Weekdays follow a more regular pattern, while weekends show a wider spread of incidents, especially later at night.
+        </p>
+
+        <p>
+            This suggests that social behavior, such as nightlife, leisure activities, and increased mobility, plays an important role in shaping when assaults occur.
+        </p>
+
+        <p>
+            What is particularly striking is that these temporal patterns remain consistent within the same hotspots identified earlier. <span class="highlight">Crime is structured not only in space, but also in time.</span>
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Conclusion</h2>
+
+        <p>
+            Crime is often described as something that constantly shifts across the city. However, this analysis reveals a different reality. While the number of incidents changes, the locations where crime concentrates remain largely the same.
+        </p>
+
+        <p>
+            These persistent hotspots reflect deeper structural patterns within the city. At the same time, the timing of incidents follows clear daily and weekly rhythms. Together, these findings show that crime is not random; it repeats itself in predictable ways across both space and time.
+        </p>
+
+        <p>
+            This shifts the focus from simply tracking changes in crime levels to asking a more important question: why do certain areas remain consistently affected?
+        </p>
+
+        <p>
+            While this dataset cannot fully answer that question, it highlights something essential. Crime patterns are not just about where incidents occur, they also reflect how the city is organized, experienced, and lived in.
+        </p>
+
+        <p class="lead">
+            In that sense, persistent hotspots are not only about crime, they are a reflection of the city itself.
+        </p>
+    </div>
+
+    <script>
+        document.getElementById("districtDropdown").onchange = function() {
+            document.getElementById("plotFrame").src = this.value;
+        };
+    </script>
+
+</body>
+</html>
